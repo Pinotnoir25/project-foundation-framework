@@ -32,6 +32,22 @@ This project uses a structured PRD system for feature planning and documentation
 
 See `docs/prd/README.md` for the complete PRD guide.
 
+## Task Management System
+
+PRDs are broken down into actionable tasks using our task management system:
+
+1. **Generate tasks from PRD**: Use prompts in `docs/tasks/prompts/` to analyze PRDs and create task breakdowns
+2. **Track task progress**: Update task status in `docs/tasks/features/` as work progresses
+3. **Sprint planning**: Organize tasks into sprints based on dependencies and priorities
+4. **Daily updates**: Use tracking templates in `docs/tasks/tracking/`
+
+Quick commands:
+- Generate tasks: `@claude analyze PRD at [path] and create tasks`
+- Update status: `@claude mark task T1.1.1 as complete`
+- Check progress: `@claude show current sprint status`
+
+See `docs/tasks/README.md` for the complete task management guide.
+
 ## Development Notes
 
 Since this is an empty repository, no specific development commands or architecture information is available yet. Future updates to this file should include:
