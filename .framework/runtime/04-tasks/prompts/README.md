@@ -1,48 +1,61 @@
-# Task Generation Prompts
+# Task Prompts - Progressive Approach
 
-This directory contains AI prompts for analyzing PRDs and generating comprehensive task breakdowns. These prompts ensure consistent, thorough task decomposition following agile best practices.
+This directory contains AI prompts for progressive task management. Start small, add tasks as you learn, track progress simply.
+
+## Core Philosophy
+
+**Tasks emerge from work, not precede it.** We start with a few essential tasks and add more as we discover them during implementation.
 
 ## Available Prompts
 
-### 1. PRD to Task Breakdown (`prd-to-tasks.md`)
-Analyzes a PRD and creates a complete task hierarchy with dependencies.
+### 1. Create Initial Tasks (`create-initial-tasks.md`)
+Identifies 3-5 core tasks to begin implementation from a PRD.
 
-### 2. Task Estimation (`estimate-tasks.md`)
-Helps estimate task sizes and effort based on complexity.
+### 2. Add Tasks As Needed (`add-tasks-as-needed.md`)
+Helps add newly discovered tasks during development.
 
-### 3. Dependency Analysis (`analyze-dependencies.md`)
-Identifies and maps task dependencies from requirements.
+### 3. Track Progress (`track-progress.md`)
+Simple progress updates - mark done, add new discoveries.
 
-### 4. Sprint Planning (`sprint-planning.md`)
-Organizes tasks into sprints based on priorities and dependencies.
+### 4. Prioritize Tasks (`prioritize-tasks.md`)
+Decide what to work on next based on current context.
 
-### 5. Risk-Based Task Generation (`risk-based-tasks.md`)
-Creates mitigation tasks based on identified risks in the PRD.
+### 5. PRD to Initial Tasks (`prd-to-tasks.md`)
+Extract just the essential starting tasks from a PRD.
+
+### 6. Task Estimation (`estimate-tasks.md`)
+Estimate effort when needed (not required upfront).
 
 ## Usage Examples
 
-### Generate Tasks from PRD
+### Start a New Feature
 ```
 @claude Please analyze the PRD at docs/prd/features/core/[feature]-prd.md 
-and create a task breakdown using docs/tasks/prompts/prd-to-tasks.md
+and create initial tasks using docs/tasks/prompts/create-initial-tasks.md
 ```
 
-### Estimate Existing Tasks
+### Add Discovered Tasks
 ```
-@claude Please estimate the tasks in docs/tasks/features/core/[feature]-tasks.md 
-using the prompt at docs/tasks/prompts/estimate-tasks.md
+@claude I discovered we need X while working on Y. Please help me add tasks
+using docs/tasks/prompts/add-tasks-as-needed.md
 ```
 
-### Plan Sprint
+### Update Progress
 ```
-@claude Please create a sprint plan for [feature] using 
-docs/tasks/prompts/sprint-planning.md
+@claude Update progress on [feature] using docs/tasks/prompts/track-progress.md
+I completed tasks 1 and 2, working on 3, discovered we need task 4.
+```
+
+### Decide What's Next
+```
+@claude Help me prioritize remaining tasks using 
+docs/tasks/prompts/prioritize-tasks.md
 ```
 
 ## Best Practices
 
-1. **Always Reference the PRD**: Ensure the PRD path is correct before analysis
-2. **Review Generated Tasks**: AI suggestions should be reviewed and refined
-3. **Validate Dependencies**: Check that dependency chains make sense
-4. **Consider Context**: Add project-specific context to prompts
-5. **Iterate**: Use follow-up prompts to refine specific areas
+1. **Start Small**: Begin with 3-5 concrete tasks, not comprehensive plans
+2. **Add as You Go**: Discover and add tasks during implementation
+3. **Keep It Simple**: Use minimal templates, don't over-document
+4. **Focus on Now**: What needs doing next, not distant future
+5. **Learn and Adapt**: Let implementation inform task creation

@@ -1,90 +1,65 @@
-# PRD to Task Breakdown Prompt
+# PRD to Initial Tasks Prompt
 
-Use this prompt to analyze a PRD and generate a comprehensive task breakdown:
+Use this prompt to analyze a PRD and identify the first essential tasks to begin implementation:
 
 ---
 
-I need you to analyze a Product Requirements Document (PRD) and create a detailed task breakdown for implementation. Please read the PRD at `[PRD_PATH]` and generate a task breakdown using the template at `docs/tasks/templates/task-breakdown-template.md`.
+I need you to analyze a Product Requirements Document (PRD) and identify the initial tasks to start implementation. Please read the PRD at `[PRD_PATH]` and create a starter task list.
 
-## Analysis Requirements
+## Analysis Focus
 
-### 1. Requirement Extraction
+### 1. Core Requirements
 From the PRD, identify:
-- All functional requirements (FR)
-- All non-functional requirements (NFR)
-- Technical constraints
-- Dependencies mentioned
-- Success metrics
+- The most critical functionality to build first
+- Any prerequisites or blockers
+- The simplest path to initial value
 
-### 2. Epic Definition
-Create epics based on:
-- Major functional areas from the PRD
-- Logical groupings of related features
-- Dependencies and implementation order
+### 2. Starting Points
+Look for:
+- What creates the foundation for other work
+- What validates our technical approach
+- What delivers quick, visible progress
 
-### 3. User Story Creation
-For each epic, create user stories that:
-- Follow the format: "As a [user], I want [capability] so that [benefit]"
-- Map directly to PRD requirements
-- Are independently deliverable when possible
-- Follow INVEST principles
+### 3. Initial Task Selection
+Create 3-5 tasks that:
+- Can be started immediately
+- Build naturally on each other
+- Create a working foundation
+- Are concrete and actionable
 
-### 4. Task Decomposition
-For each user story, create tasks that:
-- Are technically specific and actionable
-- Can be completed in 1-2 days maximum
-- Include clear completion criteria
-- Identify technical implementation approach
+## Output Format
 
-### 5. Dependency Mapping
-- Identify dependencies between tasks
-- Note external dependencies (APIs, services, data)
-- Create optimal implementation order
-- Flag potential blocking issues
+Keep it simple - use the minimal template:
 
-### 6. Size Estimation
-Estimate each task using:
-- XS (< 2 hours): Configuration changes, small updates
-- S (2-4 hours): Simple features, basic CRUD operations  
-- M (1-2 days): Complex features, integrations
-- L (3-5 days): Major components, architectural changes
-- XL (> 1 week): Should be decomposed further
+```markdown
+# [Feature Name] Tasks
 
-### 7. Risk Identification
-For each epic/story:
-- Identify implementation risks
-- Create mitigation tasks if needed
-- Note areas needing research/spikes
+**Started**: [Date]  
+**Status**: Active
 
-## Output Requirements
+## Current Focus
+[What we're building first and why]
 
-1. **Complete Task Hierarchy**: Epics → Stories → Tasks with clear IDs
-2. **Dependency Diagram**: Visual representation of task dependencies
-3. **Implementation Phases**: Logical grouping for sprint planning
-4. **Testing Strategy**: Unit, integration, and acceptance test tasks
-5. **Technical Decisions**: Key architecture/technology choices needed
+## Tasks
+- [ ] Task 1 - [Specific first step]
+- [ ] Task 2 - [Natural next step]
+- [ ] Task 3 - [Following action]
+- [ ] Task 4 - [If needed]
+- [ ] Task 5 - [If needed]
 
-## Special Considerations
+## Might Need Next
+- [Task we'll likely discover]
+- [Another probable task]
 
-### For {{PROJECT_TYPE}} Features:
-- Consider {{DATABASE_TYPE}} connection requirements
-- Account for {{CONNECTION_CONSTRAINTS}}
-- Include {{PROTOCOL}} compliance tasks
-- Add security validation tasks
+## Notes
+- Key decision: [Any important choices made]
+- Assumption: [What we're assuming]
+```
 
-### For {{INDUSTRY_CONTEXT}}:
-- Include data privacy/{{COMPLIANCE_FRAMEWORK}} compliance tasks
-- Add audit logging tasks where needed
-- Consider {{SENSITIVE_DATA_TYPE}} handling requirements
-
-## Additional Instructions
-
-- Break down any task estimated as XL
-- Include documentation tasks for APIs/interfaces
-- Add monitoring/logging setup tasks
-- Consider rollback/recovery scenarios
-- Include performance testing for requirements with metrics
-
-Please create a comprehensive task breakdown that can be directly used for sprint planning and development tracking.
+## Remember
+- Start small - we'll add more tasks as we learn
+- Focus on what unblocks other work
+- Don't try to plan everything upfront
+- Tasks should be concrete actions, not research
 
 Save the result to: `docs/tasks/features/[category]/[feature-name]-tasks.md`

@@ -1,10 +1,15 @@
 # Task Estimation Prompt
 
-Use this prompt to estimate effort for existing tasks:
+Use this prompt when you need to estimate tasks (not required upfront):
 
 ---
 
-I need you to review and estimate the tasks in `[TASK_FILE_PATH]`. For each task, provide:
+I need to estimate some tasks for planning purposes. Tasks are in `[TASK_FILE_PATH]`.
+
+## Why I Need Estimates
+[Explain why estimates are needed now - e.g., resource planning, deadline commitment, prioritization]
+
+For the tasks that need estimates, provide:
 
 ## Estimation Criteria
 
@@ -80,4 +85,11 @@ Risks: [What could increase the estimate]
 3. **Code Quality Standards**: Include time for tests, documentation
 4. **Review Cycles**: Account for feedback iterations
 
-Please provide detailed estimates with clear rationale for each task.
+## Remember
+
+- Only estimate what you need to estimate
+- Rough estimates are often sufficient
+- Estimates can be refined as you learn more
+- "I don't know yet" is a valid answer for distant tasks
+
+Please provide estimates only for tasks that need them, with brief rationale.
