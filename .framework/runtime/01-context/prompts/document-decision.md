@@ -1,6 +1,15 @@
 # Document Technical Decision Prompt
 
-When documenting a technical or architectural decision, capture the following information:
+## First Check: Is this decision worth documenting?
+Before creating or updating `decisions.md`:
+- Is this a significant technical choice?
+- Were alternatives seriously considered?
+- Will this impact future development?
+- Is this different from standard conventions?
+
+If no to all, don't document. Avoid recording obvious choices.
+
+## When documenting a significant decision:
 
 ## 1. Decision Context
 Analyze the situation requiring a decision:

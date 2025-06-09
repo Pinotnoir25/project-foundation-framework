@@ -1,6 +1,15 @@
 # Extract Glossary Terms Prompt
 
-When building or updating the project glossary, identify and document terms that need definition:
+## First Check: Does the project need a glossary?
+Before creating `glossary.md`:
+- Are there domain-specific terms being used?
+- Is there potential confusion about terminology?
+- Are business concepts being defined?
+- Do API resources have special meanings?
+
+If no to all, don't create a glossary. Standard technical terms don't need documentation.
+
+## When building or updating the glossary:
 
 ## 1. Term Identification
 Scan project materials for:

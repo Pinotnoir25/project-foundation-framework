@@ -34,24 +34,30 @@ When working with frontend applications in Docker, ALWAYS:
 
 ### First Time Setup
 If this is a fresh framework clone and `.project/context/project.json` doesn't exist:
-1. **Run initialization wizard**: 
-   - Create `.project/` directory structure
-   - Generate `project.json` from template
-   - Populate initial context files
-   - Set up development environment
+1. **Start minimal**: 
+   - Create only `project.json` with basic info (name, description, language)
+   - Other context files created only when needed
 2. **Capture project vision**: Document initial requirements as PRDs
 3. **Plan implementation**: Break down PRDs into tasks
 4. **Begin development**: Follow framework patterns and standards
 
+Context files are created progressively:
+- `current-state.md` - When first feature is complete
+- `decisions.md` - When first significant choice is made  
+- `glossary.md` - When domain terms need definition
+
 ### Ongoing Development
 If `.project/context/project.json` exists:
 1. Load project context from `.project/context/project.json`
-2. Review current state in `.project/context/current-state.md`
-3. Check architectural decisions in `.project/context/decisions.md`
-4. Reference domain terms in `.project/context/glossary.md`
-5. Review existing PRDs in `docs/prd/features/`
-6. Check task progress in `docs/tasks/features/`
-7. Use runtime materials from `.framework/runtime/` for generation
+2. If they exist, review:
+   - Current state in `.project/context/current-state.md`
+   - Architectural decisions in `.project/context/decisions.md`
+   - Domain terms in `.project/context/glossary.md`
+3. Review existing PRDs in `docs/prd/features/`
+4. Check task progress in `docs/tasks/features/`
+5. Use runtime materials from `.framework/runtime/` for generation
+
+Note: Context files are created progressively as needed, not all at once
 
 ## Project Overview
 
