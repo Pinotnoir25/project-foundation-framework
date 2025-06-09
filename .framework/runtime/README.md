@@ -4,42 +4,36 @@ This directory contains materials that **Claude uses during execution** to gener
 
 ## Directory Structure
 
-### Theme-Based Organization
-Runtime materials are organized by functional theme, with each theme containing:
-- `/prompts/` - Instructions for Claude's analysis and thinking process
-- `/templates/` - Document structures Claude uses to create deliverables
+### Lifecycle-Based Organization
+Runtime materials are organized by project lifecycle order, with numbered prefixes indicating the natural flow:
 
-### Themes
+### Themes (in order of use)
 
-#### `/prd/`
-Product Requirements Documentation generation:
-- **Prompts**: How to analyze requirements, identify users, define metrics
-- **Templates**: PRD document structures
-
-#### `/tasks/`
-Task breakdown and sprint planning:
-- **Prompts**: How to decompose PRDs into tasks, estimate effort
-- **Templates**: Task list and sprint planning formats
-
-#### `/context/`
-Project context management:
+#### `01-context/`
+Project context management (First: Set up project context)
 - **Prompts**: How to update state, document decisions, extract glossary terms
 - **Templates**: project.json, current-state.md, decisions.md, glossary.md
 
-#### `/project-structure/`
-Project directory and file structure setup:
-- **Templates**: docs-structure.json defining project layout
+#### `02-prd/`
+Product Requirements Documentation (Second: Define what to build)
+- **Prompts**: How to analyze requirements, identify users, define metrics
+- **Templates**: PRD document structures
 
-#### `/docker/`
-Containerization and orchestration:
-- **Prompts**: Containerization strategy analysis
-- **Templates**: Dockerfiles (Node.js, Python), docker-compose.yml, .dockerignore
-
-#### `/technical/`
-Technical specifications and standards:
+#### `03-technical/`
+Technical specifications and standards (Third: Specify how to build)
 - **Prompts**: How to design APIs, create test plans, define infrastructure
 - **Templates**: Technical specification documents (TAD, API design, test specs)
-- **Standards**: Subdirectory containing API patterns, security requirements, infrastructure guidelines, etc.
+- **Standards**: Subdirectory containing API patterns, security requirements, infrastructure guidelines
+
+#### `04-tasks/`
+Task breakdown and sprint planning (Fourth: Plan the work)
+- **Prompts**: How to decompose PRDs into tasks, estimate effort
+- **Templates**: Task list and sprint planning formats
+
+#### `05-docker/`
+Containerization and deployment (Fifth: Package and deploy)
+- **Prompts**: Containerization strategy analysis
+- **Templates**: Dockerfiles (Node.js, Python), docker-compose.yml, .dockerignore
 
 ## How Claude Uses These Files
 
