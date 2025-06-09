@@ -93,6 +93,71 @@ Quick commands:
 
 [IMPORTANT_NOTES]
 
+## Development Tool Preferences
+
+### MCP Tools to Use
+When these MCP tools are available, ALWAYS use them instead of alternatives:
+- **Docker MCP**: Use for ALL Docker operations (don't use Bash for docker commands)
+- **Playwright MCP**: Use for ALL E2E testing (don't write raw Playwright code)
+- **Sequential Thinking MCP**: Use for complex problem breakdown and architecture planning
+- **GitHub MCP**: Use for ALL git operations (don't use Bash for git commands)
+
+### Tool Priority
+If an MCP tool exists for the task, use it. Only fall back to Bash/direct code when no MCP tool is available.
+
+### Examples
+- ❌ DON'T: `bash docker build -t myapp .`
+- ✅ DO: Use Docker MCP to build image
+
+- ❌ DON'T: `bash git commit -m "message"`
+- ✅ DO: Use GitHub MCP for commits
+
+- ❌ DON'T: Write Playwright test code manually
+- ✅ DO: Use Playwright MCP to generate and run tests
+
+## Docker & Frontend Caching Prevention
+
+### IMPORTANT: Always Prevent Caching Issues
+When working with frontend applications in Docker, ALWAYS follow these steps to ensure changes are visible:
+
+1. **Docker Build Commands**
+   - Always use `--no-cache` flag: `docker build --no-cache -t appname .`
+   - Include build args for cache busting: `--build-arg CACHEBUST=$(date +%s)`
+
+2. **Docker Compose**
+   - Always rebuild: `docker-compose build --no-cache`
+   - Force recreate containers: `docker-compose up --force-recreate --build`
+   - Or use: `docker-compose down && docker-compose up --build`
+
+3. **Frontend-Specific**
+   - Clear build folders before building: `rm -rf dist/ build/ .next/ .nuxt/`
+   - Set environment variables: `GENERATE_SOURCEMAP=false` (for production)
+   - For Next.js: Clear `.next/cache/`
+   - For Vite/React: Clear `node_modules/.vite/`
+
+4. **Browser Cache**
+   - Add cache-busting to assets: `app.js?v=${timestamp}`
+   - Set proper headers in Dockerfile:
+     ```dockerfile
+     # Add to nginx.conf or equivalent
+     location /static {
+       add_header Cache-Control "no-cache, no-store, must-revalidate";
+     }
+     ```
+
+5. **Development Workflow**
+   - Before testing changes: 
+     1. Stop all containers: `docker-compose down`
+     2. Remove volumes: `docker volume prune -f`
+     3. Rebuild with no cache: `docker-compose build --no-cache`
+     4. Start fresh: `docker-compose up`
+
+### Quick Command for Fresh Rebuild
+Always use this command when frontend changes aren't showing:
+```bash
+docker-compose down -v && docker-compose build --no-cache && docker-compose up
+```
+
 ---
 
 *This file is automatically customized based on your project configuration. Update `.project/context/project.json` to modify project details.*
