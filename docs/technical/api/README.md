@@ -24,7 +24,7 @@ Examples:
 
 ## Creating New API Docs
 
-Use the template at `docs/technical/templates/api-design-template.md`
+Use the template at `.framework/templates/technical/api-design-template.md`
 
 ## Related Files
 

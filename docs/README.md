@@ -9,12 +9,9 @@ docs/
 ├── README.md          # This file
 ├── prd/              # Product Requirements Documents
 │   ├── features/     # Feature-specific PRDs
-│   ├── templates/    # PRD templates
-│   └── prompts/      # AI prompts for PRD generation
+│   └── assets/       # Supporting materials
 ├── tasks/            # Task Management System
 │   ├── features/     # Task breakdowns by feature
-│   ├── templates/    # Task templates
-│   ├── prompts/      # AI prompts for task generation
 │   └── tracking/     # Progress tracking
 └── technical/        # Technical Documentation
     ├── architecture/ # Technical Architecture Documents
@@ -24,9 +21,12 @@ docs/
     ├── security/     # Security requirements
     ├── api/          # API documentation
     ├── operations/   # Monitoring and ops
-    ├── setup/        # Developer environment
-    ├── templates/    # Technical doc templates
-    └── prompts/      # AI prompts for technical docs
+    └── setup/        # Developer environment
+
+.framework/           # Framework resources (templates, prompts, guides)
+├── templates/        # All reusable templates
+├── prompts/          # All AI prompts
+└── guides/           # Framework documentation
 ```
 
 ## Workflow Overview
@@ -41,7 +41,7 @@ graph LR
 
 **Quick Start:**
 ```bash
-@claude Create a PRD for [feature] using docs/prd/prompts/new-feature-prd.md
+@claude Create a PRD for [feature] using .framework/prompts/prd/new-feature-prd.md
 ```
 
 ### 2. Technical Design
@@ -70,7 +70,7 @@ graph LR
 **Quick Start:**
 ```bash
 @claude Analyze PRD at docs/prd/features/[category]/[feature]-prd.md 
-and create tasks using docs/tasks/prompts/prd-to-tasks.md
+and create tasks using .framework/prompts/tasks/prd-to-tasks.md
 ```
 
 ### 4. Implementation & Tracking
@@ -91,20 +91,20 @@ graph LR
 ## Key Documents
 
 ### PRD System
-- [PRD Guide](prd/README.md) - Complete guide to creating and managing PRDs
-- [PRD Template](prd/templates/prd-template.md) - Standard PRD structure
-- [PRD Quick Reference](prd/QUICK_REFERENCE.md) - Common PRD commands
+- [PRD Guide](.framework/guides/system-guides/prd-guide.md) - Complete guide to creating and managing PRDs
+- [PRD Template](.framework/templates/prd/prd-template.md) - Standard PRD structure
+- [PRD Quick Reference](.framework/guides/system-guides/prd-quick-reference.md) - Common PRD commands
 
 ### Technical System
-- [Technical Guide](technical/README.md) - Complete guide to technical documentation
-- [TAD Template](technical/templates/tad-template.md) - Technical Architecture Document template
-- [API Template](technical/templates/api-design-template.md) - API design template
-- [Technical Quick Reference](technical/QUICK_REFERENCE.md) - Common technical commands
+- [Technical Guide](.framework/guides/system-guides/technical-guide.md) - Complete guide to technical documentation
+- [TAD Template](.framework/templates/technical/tad-template.md) - Technical Architecture Document template
+- [API Template](.framework/templates/technical/api-design-template.md) - API design template
+- [Technical Quick Reference](.framework/guides/system-guides/technical-quick-reference.md) - Common technical commands
 
 ### Task System
-- [Task Guide](tasks/README.md) - Complete guide to task management
-- [Task Template](tasks/templates/task-breakdown-template.md) - Standard task structure
-- [Task Quick Reference](tasks/QUICK_REFERENCE.md) - Common task commands
+- [Task Guide](.framework/guides/system-guides/tasks-guide.md) - Complete guide to task management
+- [Task Template](.framework/templates/tasks/task-breakdown-template.md) - Standard task structure
+- [Task Quick Reference](.framework/guides/system-guides/tasks-quick-reference.md) - Common task commands
 
 ### Examples
 - [Example Feature PRD](prd/features/core/example-feature-prd.md)
@@ -162,8 +162,8 @@ Reference both PRD and tasks in pull requests for full traceability.
 ```
 
 ### Quick Links
-- [Creating Your First PRD](prd/prompts/new-feature-prd.md)
-- [Generating Tasks from PRD](tasks/prompts/prd-to-tasks.md)
+- [Creating Your First PRD](.framework/prompts/prd/new-feature-prd.md)
+- [Generating Tasks from PRD](.framework/prompts/tasks/prd-to-tasks.md)
 - [Tracking Sprint Progress](tasks/tracking/README.md)
 
 ## Metrics & Reporting

@@ -24,4 +24,4 @@ Examples:
 
 ## Creating New Test Specs
 
-Use the template at `docs/technical/templates/test-specification-template.md`
+Use the template at `.framework/templates/technical/test-specification-template.md`

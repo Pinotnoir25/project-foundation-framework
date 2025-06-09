@@ -24,4 +24,4 @@ Examples:
 
 ## Creating New Infrastructure Docs
 
-Use the template at `docs/technical/templates/infrastructure-template.md`
+Use the template at `.framework/templates/technical/infrastructure-template.md`

@@ -22,4 +22,4 @@ Examples:
 
 ## Creating New TADs
 
-Use the template at `docs/technical/templates/tad-template.md`
+Use the template at `.framework/templates/technical/tad-template.md`

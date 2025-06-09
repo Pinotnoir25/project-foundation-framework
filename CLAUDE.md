@@ -21,16 +21,16 @@ When starting development:
 This project uses a structured PRD system for feature planning and documentation. Before implementing any feature:
 
 1. **Check for existing PRDs**: Look in `docs/prd/features/` for relevant documentation
-2. **Create new PRDs**: Use templates in `docs/prd/templates/` and prompts in `docs/prd/prompts/`
+2. **Create new PRDs**: Use templates in `.framework/templates/prd/` and prompts in `.framework/prompts/prd/`
 3. **Reference PRDs during development**: Align implementation with documented requirements and success metrics
 
-See `docs/prd/README.md` for the complete PRD guide.
+See `.framework/guides/system-guides/prd-guide.md` for the complete PRD guide.
 
 ## Task Management System
 
 PRDs are broken down into actionable tasks using our task management system:
 
-1. **Generate tasks from PRD**: Use prompts in `docs/tasks/prompts/` to analyze PRDs and create task breakdowns
+1. **Generate tasks from PRD**: Use prompts in `.framework/prompts/tasks/` to analyze PRDs and create task breakdowns
 2. **Track task progress**: Update task status in `docs/tasks/features/` as work progresses
 3. **Sprint planning**: Organize tasks into sprints based on dependencies and priorities
 4. **Daily updates**: Use tracking templates in `docs/tasks/tracking/`
@@ -40,7 +40,7 @@ Quick commands:
 - Update status: `@claude mark task T1.1.1 as complete`
 - Check progress: `@claude show current sprint status`
 
-See `docs/tasks/README.md` for the complete task management guide.
+See `.framework/guides/system-guides/tasks-guide.md` for the complete task management guide.
 
 ## Context Management
 
@@ -59,7 +59,7 @@ Quick commands:
 
 ## Development Workflow
 
-1. **Initialize**: Use prompts in `docs/initialization/` for project setup
+1. **Initialize**: Use guides in `.framework/initialization/` for project setup
 2. **Requirements**: Document features as PRDs in `docs/prd/features/`
 3. **Task Planning**: Break down PRDs into tasks in `docs/tasks/features/`
 4. **Implementation**: Follow project standards and patterns

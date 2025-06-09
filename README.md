@@ -4,7 +4,7 @@ A comprehensive framework for managing software projects with Claude AI, featuri
 
 ## Quick Start
 
-1. **Read `INITIALIZE.md`** - Welcome guide and first steps
+1. **Read `.framework/guides/INITIALIZE.md`** - Welcome guide and first steps
 2. **Run initialization** - `@claude initialize new project`
 3. **Follow the prompts** - Claude will guide you through setup
 
@@ -12,16 +12,19 @@ A comprehensive framework for managing software projects with Claude AI, featuri
 
 ```
 .
-├── INITIALIZE.md           # Start here - welcome and setup guide
+├── .framework/            # Framework documentation and templates
+│   ├── guides/           # Framework and system guides
+│   ├── templates/        # All reusable templates
+│   ├── prompts/          # AI prompts for content generation
+│   └── initialization/   # Project setup resources
 ├── CLAUDE.md              # Claude AI instructions (auto-customized)
 ├── .project/              # Persistent project context
 │   ├── context/          # Current project state
-│   ├── conversations/    # Saved session history
-│   └── templates/        # Reusable templates
+│   └── conversations/    # Saved session history
 ├── docs/
-│   ├── initialization/   # Setup prompts and guides
 │   ├── prd/             # Product Requirements Documentation
-│   └── tasks/           # Task management system
+│   ├── tasks/           # Task management system
+│   └── technical/       # Technical documentation
 └── examples/            # Real-world examples
 ```
 
@@ -96,7 +99,7 @@ The framework adapts to your needs:
 
 ## Getting Started
 
-1. Open `INITIALIZE.md` for detailed instructions
+1. Open `.framework/guides/INITIALIZE.md` for detailed instructions
 2. Have your project details ready:
    - Project name and description
    - Technical stack preferences
