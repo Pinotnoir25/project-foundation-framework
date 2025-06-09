@@ -1,0 +1,36 @@
+# Multi-stage Dockerfile for optimization
+# Use when: app size matters, security is critical, or build/runtime deps differ
+
+# Build stage
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Copy only package files first (layer caching)
+COPY package*.json ./
+RUN npm ci
+
+# Copy source and build
+COPY . .
+RUN npm run build
+
+# Production stage
+FROM node:20-alpine AS production
+
+# Security: non-root user
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S nodejs -u 1001
+
+WORKDIR /app
+
+# Copy only production dependencies
+COPY package*.json ./
+RUN npm ci --only=production && \
+    npm cache clean --force
+
+# Copy built application
+COPY --from=builder --chown=nodejs:nodejs /app/dist ./dist
+
+USER nodejs
+EXPOSE 3000
+CMD ["node", "dist/index.js"]

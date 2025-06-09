@@ -1,0 +1,20 @@
+# Frontend Dockerfile with cache prevention built-in
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies with cache cleared
+RUN npm ci && npm cache clean --force
+
+# Copy source
+COPY . .
+
+# Build with cache prevention
+RUN rm -rf dist/ build/ .next/ .nuxt/ && \
+    npm run build
+
+EXPOSE 3000
+CMD ["npm", "start"]

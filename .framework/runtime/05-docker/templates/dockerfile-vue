@@ -1,0 +1,26 @@
+# Vue.js Dockerfile with cache prevention
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies with cache cleared
+RUN npm ci && npm cache clean --force
+
+# Copy source files
+COPY . .
+
+# Build with cache prevention
+# Remove any existing build artifacts first
+RUN rm -rf dist/ node_modules/.cache/ .vue-cache/ && \
+    npm run build
+
+# Install static server
+RUN npm install -g serve
+
+EXPOSE 3000
+
+# Serve the dist directory
+CMD ["serve", "-s", "dist", "-l", "3000"]

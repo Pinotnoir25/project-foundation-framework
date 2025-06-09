@@ -1,0 +1,27 @@
+# Next.js Dockerfile with cache prevention
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies with cache cleared
+RUN npm ci && npm cache clean --force
+
+# Copy source files
+COPY . .
+
+# Build with cache prevention
+# Remove any existing Next.js build artifacts
+RUN rm -rf .next/ out/ node_modules/.cache/ && \
+    npm run build
+
+# Production dependencies only
+RUN npm ci --only=production && \
+    npm cache clean --force
+
+EXPOSE 3000
+
+# Next.js production server
+CMD ["npm", "start"]
