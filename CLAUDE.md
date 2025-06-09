@@ -4,23 +4,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This project is about an MCP (Model Context Protocol) server that will be used by Nexus LLM to interact with a Research Mongo Database made of collections about various element of an eclinical solution called Central Monitoring Platform (CMP). 
-
-About CMP
-Basically, CMP is designed to analyse clinical trial data using statistical methods to identify potential data anomalies and document these findings into signals and allow the user to take actions on these signals. The analysis implies the loading of trial data, its preparation / transformation and the selection of statistical to be executed on datasets and variables. All signals and actions resulting from the analysis are also part of CMP. And just like any eclinical solution platform, it has to manage users who belongs to different pharmaceutical organizations and have different permissions.
-
-About Mongo
-MongoDB do not contain the trial data nor the statisical results but it contains all the CMP metadata: datasets and variables names, organizations, users, signals, actions, etc. The database is only accessible via an SSH tunnel.
+[PROJECT_DESCRIPTION]
 
 ## Current Status
 
-**Empty Repository**: This repository has just been initialized and contains no code yet. When starting development:
+**Status**: [PROJECT_STATUS]
 
-1. Determine the programming language and framework to use
-2. Initialize the project with appropriate package manager
-3. Set up the basic MCP server/client structure
-4. Configure MongoDB connections
-5. Create appropriate directory structure
+When starting development:
+1. Review existing PRDs in `docs/prd/features/` for feature requirements
+2. Check task breakdowns in `docs/tasks/features/` for current progress
+3. Load project context from `.project/context/project.json`
+4. Reference the glossary in `.project/context/glossary.md` for terminology
 
 ## Product Requirements Documentation (PRD)
 
@@ -48,11 +42,57 @@ Quick commands:
 
 See `docs/tasks/README.md` for the complete task management guide.
 
-## Development Notes
+## Context Management
 
-Since this is an empty repository, no specific development commands or architecture information is available yet. Future updates to this file should include:
+Project context is maintained in the `.project/` directory:
 
-- Build and test commands once the project is set up
-- Architecture overview once the code structure is established
-- MCP server configuration details
-- MongoDB integration patterns used
+- **Project Configuration**: `.project/context/project.json`
+- **Current State**: `.project/context/current-state.md`
+- **Architectural Decisions**: `.project/context/decisions.md`
+- **Domain Glossary**: `.project/context/glossary.md`
+- **Conversation History**: `.project/conversations/`
+
+Quick commands:
+- Save context: `@claude save current conversation context`
+- Load context: `@claude load project context`
+- Update state: `@claude update project state`
+
+## Development Workflow
+
+1. **Initialize**: Use prompts in `docs/initialization/` for project setup
+2. **Requirements**: Document features as PRDs in `docs/prd/features/`
+3. **Task Planning**: Break down PRDs into tasks in `docs/tasks/features/`
+4. **Implementation**: Follow project standards and patterns
+5. **Context Updates**: Keep `.project/context/` current with decisions
+
+## Project-Specific Guidelines
+
+[PROJECT_SPECIFIC_GUIDELINES]
+
+## Technical Stack
+
+- **Primary Language**: [PRIMARY_LANGUAGE]
+- **Framework**: [FRAMEWORK]
+- **Database**: [DATABASE]
+- **Infrastructure**: [INFRASTRUCTURE]
+
+## Development Commands
+
+```bash
+# [SETUP_COMMANDS]
+# [BUILD_COMMANDS]
+# [TEST_COMMANDS]
+# [RUN_COMMANDS]
+```
+
+## Key Integration Points
+
+[INTEGRATION_POINTS]
+
+## Important Notes
+
+[IMPORTANT_NOTES]
+
+---
+
+*This file is automatically customized based on your project configuration. Update `.project/context/project.json` to modify project details.*

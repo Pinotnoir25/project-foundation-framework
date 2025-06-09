@@ -1,0 +1,62 @@
+{
+  "project": {
+    "name": "[PROJECT_NAME]",
+    "description": "[PROJECT_DESCRIPTION]",
+    "type": "[PROJECT_TYPE]",
+    "version": "0.1.0",
+    "status": "initialization",
+    "created": "[CREATION_DATE]",
+    "lastUpdated": "[LAST_UPDATE_DATE]"
+  },
+  "domain": {
+    "industry": "[INDUSTRY_DOMAIN]",
+    "primaryFunction": "[PRIMARY_FUNCTION]",
+    "targetUsers": "[TARGET_USER_GROUPS]",
+    "keyTerminology": [
+      {
+        "term": "[DOMAIN_TERM_1]",
+        "definition": "[DEFINITION_1]"
+      }
+    ]
+  },
+  "technical": {
+    "primaryLanguage": "[PROGRAMMING_LANGUAGE]",
+    "framework": "[FRAMEWORK_NAME]",
+    "database": "[DATABASE_TYPE]",
+    "infrastructure": "[INFRASTRUCTURE_TYPE]",
+    "integrations": [
+      "[INTEGRATION_1]",
+      "[INTEGRATION_2]"
+    ]
+  },
+  "objectives": {
+    "primary": "[PRIMARY_OBJECTIVE]",
+    "secondary": [
+      "[SECONDARY_OBJECTIVE_1]",
+      "[SECONDARY_OBJECTIVE_2]"
+    ],
+    "successMetrics": [
+      "[SUCCESS_METRIC_1]",
+      "[SUCCESS_METRIC_2]"
+    ]
+  },
+  "team": {
+    "size": "[TEAM_SIZE]",
+    "roles": [
+      {
+        "role": "[ROLE_NAME]",
+        "responsibilities": "[ROLE_RESPONSIBILITIES]"
+      }
+    ]
+  },
+  "constraints": {
+    "timeline": "[PROJECT_TIMELINE]",
+    "budget": "[BUDGET_CONSTRAINTS]",
+    "technical": [
+      "[TECHNICAL_CONSTRAINT_1]"
+    ],
+    "regulatory": [
+      "[REGULATORY_REQUIREMENT_1]"
+    ]
+  }
+}

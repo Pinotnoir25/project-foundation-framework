@@ -1,6 +1,6 @@
 # Documentation Overview
 
-This directory contains comprehensive documentation for the Nexus MCP Research MongoDB Server project, following modern software development best practices (2024-2025).
+This directory contains comprehensive documentation for the {{PROJECT_NAME}} project, following modern software development best practices (2024-2025).
 
 ## Documentation Structure
 
@@ -11,11 +11,22 @@ docs/
 │   ├── features/     # Feature-specific PRDs
 │   ├── templates/    # PRD templates
 │   └── prompts/      # AI prompts for PRD generation
-└── tasks/            # Task Management System
-    ├── features/     # Task breakdowns by feature
-    ├── templates/    # Task templates
-    ├── prompts/      # AI prompts for task generation
-    └── tracking/     # Progress tracking
+├── tasks/            # Task Management System
+│   ├── features/     # Task breakdowns by feature
+│   ├── templates/    # Task templates
+│   ├── prompts/      # AI prompts for task generation
+│   └── tracking/     # Progress tracking
+└── technical/        # Technical Documentation
+    ├── architecture/ # Technical Architecture Documents
+    ├── standards/    # Development standards
+    ├── infrastructure/ # Deployment configurations
+    ├── testing/      # Test strategies
+    ├── security/     # Security requirements
+    ├── api/          # API documentation
+    ├── operations/   # Monitoring and ops
+    ├── setup/        # Developer environment
+    ├── templates/    # Technical doc templates
+    └── prompts/      # AI prompts for technical docs
 ```
 
 ## Workflow Overview
@@ -25,7 +36,7 @@ docs/
 graph LR
     A[Feature Request] --> B[Create PRD]
     B --> C[Review & Approve]
-    C --> D[Ready for Implementation]
+    C --> D[Ready for Technical Design]
 ```
 
 **Quick Start:**
@@ -33,10 +44,25 @@ graph LR
 @claude Create a PRD for [feature] using docs/prd/prompts/new-feature-prd.md
 ```
 
-### 2. Task Generation
+### 2. Technical Design
 ```mermaid
 graph LR
-    A[Approved PRD] --> B[Generate Tasks]
+    A[Approved PRD] --> B[Generate Technical Spec]
+    B --> C[Design Architecture]
+    C --> D[Create API Design]
+    D --> E[Define Test Strategy]
+```
+
+**Quick Start:**
+```bash
+@claude Analyze PRD at [path] and create technical specifications
+@claude Design API for [feature] following our standards
+```
+
+### 3. Task Generation
+```mermaid
+graph LR
+    A[Technical Spec] --> B[Generate Tasks]
     B --> C[Estimate Effort]
     C --> D[Plan Sprints]
 ```
@@ -47,12 +73,13 @@ graph LR
 and create tasks using docs/tasks/prompts/prd-to-tasks.md
 ```
 
-### 3. Implementation & Tracking
+### 4. Implementation & Tracking
 ```mermaid
 graph LR
     A[Sprint Start] --> B[Work on Tasks]
-    B --> C[Update Progress]
-    C --> D[Sprint Review]
+    B --> C[Follow Standards]
+    C --> D[Update Progress]
+    D --> E[Sprint Review]
 ```
 
 **Quick Start:**
@@ -68,14 +95,20 @@ graph LR
 - [PRD Template](prd/templates/prd-template.md) - Standard PRD structure
 - [PRD Quick Reference](prd/QUICK_REFERENCE.md) - Common PRD commands
 
+### Technical System
+- [Technical Guide](technical/README.md) - Complete guide to technical documentation
+- [TAD Template](technical/templates/tad-template.md) - Technical Architecture Document template
+- [API Template](technical/templates/api-design-template.md) - API design template
+- [Technical Quick Reference](technical/QUICK_REFERENCE.md) - Common technical commands
+
 ### Task System
 - [Task Guide](tasks/README.md) - Complete guide to task management
 - [Task Template](tasks/templates/task-breakdown-template.md) - Standard task structure
 - [Task Quick Reference](tasks/QUICK_REFERENCE.md) - Common task commands
 
 ### Examples
-- [MongoDB Connection Manager PRD](prd/features/core/mongodb-connection-manager-prd.md)
-- [MongoDB Connection Manager Tasks](tasks/features/core/mongodb-connection-manager-tasks.md)
+- [Example Feature PRD](prd/features/core/example-feature-prd.md)
+- [Example Feature Tasks](tasks/features/core/example-feature-tasks.md)
 
 ## Best Practices
 
@@ -84,6 +117,12 @@ graph LR
 2. **Measurable Success**: Define specific, measurable metrics
 3. **User Focus**: Include user personas and use cases
 4. **Living Document**: Update as you learn
+
+### For Technical Documentation
+1. **Architecture First**: Document key design decisions early
+2. **Standards Compliance**: Follow established coding and security standards
+3. **API Contracts**: Define clear interfaces before implementation
+4. **Test Coverage**: Minimum 80% test coverage requirement
 
 ### For Tasks
 1. **Small & Specific**: Tasks should be 1-2 days max

@@ -4,11 +4,11 @@ Use this prompt template to generate a comprehensive PRD for a new feature:
 
 ---
 
-I need you to create a Product Requirements Document (PRD) for a new feature in our MCP (Model Context Protocol) server project. Please use the PRD template located at `docs/prd/templates/prd-template.md`.
+I need you to create a Product Requirements Document (PRD) for a new feature in our {{PROJECT_TYPE}} project. Please use the PRD template located at `docs/prd/templates/prd-template.md`.
 
 ## Context
-- **Project**: Nexus MCP Research Mongo Database Server
-- **Purpose**: Enable Nexus LLM to interact with a Research MongoDB containing metadata for an eClinical solution (CMP)
+- **Project**: {{PROJECT_NAME}}
+- **Purpose**: {{PROJECT_PURPOSE}}
 - **Current Stage**: [e.g., "Early development", "MVP planning", "Production enhancement"]
 
 ## Feature Information
@@ -33,7 +33,7 @@ I need you to create a Product Requirements Document (PRD) for a new feature in 
 - **Target Timeline**: [When this needs to be delivered]
 
 ## Technical Context
-- **Related Systems**: [MongoDB collections, APIs, or services involved]
+- **Related Systems**: [{{DATABASE_TYPE}} collections/tables, APIs, or services involved]
 - **Technical Constraints**: [Any limitations or requirements]
 - **Dependencies**: [What this feature depends on]
 
@@ -46,7 +46,7 @@ Please create a comprehensive PRD following the template structure, ensuring to:
 1. Separate problem exploration from solution details
 2. Include specific, measurable success metrics
 3. Define clear acceptance criteria for each requirement
-4. Consider security implications given the healthcare/clinical trial context
-5. Account for the SSH tunnel requirement for MongoDB access
+4. Consider security implications given the {{INDUSTRY_CONTEXT}}
+5. Account for any {{TECHNICAL_REQUIREMENTS}} specific to this project
 
 Save the PRD to: `docs/prd/features/[category]/[feature-name]-prd.md`

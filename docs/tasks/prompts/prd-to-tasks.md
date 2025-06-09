@@ -66,16 +66,16 @@ For each epic/story:
 
 ## Special Considerations
 
-### For MCP Server Features:
-- Consider MongoDB connection requirements
-- Account for SSH tunnel constraints
-- Include MCP protocol compliance tasks
+### For {{PROJECT_TYPE}} Features:
+- Consider {{DATABASE_TYPE}} connection requirements
+- Account for {{CONNECTION_CONSTRAINTS}}
+- Include {{PROTOCOL}} compliance tasks
 - Add security validation tasks
 
-### For Healthcare/Clinical Context:
-- Include data privacy/HIPAA compliance tasks
+### For {{INDUSTRY_CONTEXT}}:
+- Include data privacy/{{COMPLIANCE_FRAMEWORK}} compliance tasks
 - Add audit logging tasks where needed
-- Consider PHI/PII handling requirements
+- Consider {{SENSITIVE_DATA_TYPE}} handling requirements
 
 ## Additional Instructions
 
