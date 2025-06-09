@@ -2,6 +2,50 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Framework Rules (Always Apply)
+
+These rules apply regardless of project state:
+
+### MCP Tools to Use
+When these MCP tools are available, ALWAYS use them instead of alternatives:
+- **Docker MCP**: Use for ALL Docker operations (don't use Bash for docker commands)
+- **Playwright MCP**: Use for ALL E2E testing (don't write raw Playwright code)
+- **Sequential Thinking MCP**: Use for complex problem breakdown and architecture planning
+- **GitHub MCP**: Use for ALL git operations (don't use Bash for git commands)
+
+### Framework File Protection
+Check the working directory name to determine the mode:
+- If directory is named `project-foundation-framework`: **Framework Development Mode** - OK to modify .framework/ files
+- Any other directory name: **Project Mode** - NEVER modify files in .framework/ directory
+
+### Docker & Frontend Caching Prevention
+When working with frontend applications in Docker, ALWAYS:
+- Use `--no-cache` flag: `docker build --no-cache -t appname .`
+- Force recreate: `docker-compose down -v && docker-compose build --no-cache && docker-compose up`
+- Clear build folders: `rm -rf dist/ build/ .next/ .nuxt/`
+
+## Project Context (Build Progressively)
+
+### First Time Setup
+If this is a fresh framework clone and `.project/context/project.json` doesn't exist:
+1. **Run initialization wizard**: 
+   - Create `.project/` directory structure
+   - Generate `project.json` from template
+   - Populate initial context files
+   - Set up development environment
+2. **Capture project vision**: Document initial requirements as PRDs
+3. **Plan implementation**: Break down PRDs into tasks
+4. **Begin development**: Follow framework patterns and standards
+
+### Ongoing Development
+If `.project/context/project.json` exists:
+1. Load project context from `.project/context/project.json`
+2. Review current state in `.project/context/current-state.md`
+3. Check architectural decisions in `.project/context/decisions.md`
+4. Reference domain terms in `.project/context/glossary.md`
+5. Review existing PRDs in `docs/prd/features/`
+6. Check task progress in `docs/tasks/features/`
+
 ## Project Overview
 
 [PROJECT_DESCRIPTION]
@@ -9,12 +53,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Current Status
 
 **Status**: [PROJECT_STATUS]
-
-When starting development:
-1. Review existing PRDs in `docs/prd/features/` for feature requirements
-2. Check task breakdowns in `docs/tasks/features/` for current progress
-3. Load project context from `.project/context/project.json`
-4. Reference the glossary in `.project/context/glossary.md` for terminology
 
 ## Product Requirements Documentation (PRD)
 
@@ -93,82 +131,21 @@ Quick commands:
 
 [IMPORTANT_NOTES]
 
-## Framework Development Mode
+## Additional Framework Guidelines
 
-### IMPORTANT: Framework File Protection
-Check the working directory name to determine the mode:
-- If directory is named `project-foundation-framework`: **Framework Development Mode** - OK to modify .framework/ files
-- Any other directory name: **Project Mode** - NEVER modify files in .framework/ directory
+### Quick Commands Reference
+- Initialize project: `@claude run project initialization`
+- Generate tasks from PRD: `@claude analyze PRD at [path] and create tasks`
+- Update task status: `@claude mark task T1.1.1 as complete`
+- Save context: `@claude save current conversation context`
+- Load context: `@claude load project context`
 
-In Project Mode, if changes are needed to framework files, inform the user to:
+### In Project Mode
+If changes are needed to framework files, inform the user to:
 1. Make changes in the upstream framework repository
 2. Pull updates into their project
 3. Or override locally with project-specific versions outside .framework/
 
-## Development Tool Preferences
-
-### MCP Tools to Use
-When these MCP tools are available, ALWAYS use them instead of alternatives:
-- **Docker MCP**: Use for ALL Docker operations (don't use Bash for docker commands)
-- **Playwright MCP**: Use for ALL E2E testing (don't write raw Playwright code)
-- **Sequential Thinking MCP**: Use for complex problem breakdown and architecture planning
-- **GitHub MCP**: Use for ALL git operations (don't use Bash for git commands)
-
-### Tool Priority
-If an MCP tool exists for the task, use it. Only fall back to Bash/direct code when no MCP tool is available.
-
-### Examples
-- ❌ DON'T: `bash docker build -t myapp .`
-- ✅ DO: Use Docker MCP to build image
-
-- ❌ DON'T: `bash git commit -m "message"`
-- ✅ DO: Use GitHub MCP for commits
-
-- ❌ DON'T: Write Playwright test code manually
-- ✅ DO: Use Playwright MCP to generate and run tests
-
-## Docker & Frontend Caching Prevention
-
-### IMPORTANT: Always Prevent Caching Issues
-When working with frontend applications in Docker, ALWAYS follow these steps to ensure changes are visible:
-
-1. **Docker Build Commands**
-   - Always use `--no-cache` flag: `docker build --no-cache -t appname .`
-   - Include build args for cache busting: `--build-arg CACHEBUST=$(date +%s)`
-
-2. **Docker Compose**
-   - Always rebuild: `docker-compose build --no-cache`
-   - Force recreate containers: `docker-compose up --force-recreate --build`
-   - Or use: `docker-compose down && docker-compose up --build`
-
-3. **Frontend-Specific**
-   - Clear build folders before building: `rm -rf dist/ build/ .next/ .nuxt/`
-   - Set environment variables: `GENERATE_SOURCEMAP=false` (for production)
-   - For Next.js: Clear `.next/cache/`
-   - For Vite/React: Clear `node_modules/.vite/`
-
-4. **Browser Cache**
-   - Add cache-busting to assets: `app.js?v=${timestamp}`
-   - Set proper headers in Dockerfile:
-     ```dockerfile
-     # Add to nginx.conf or equivalent
-     location /static {
-       add_header Cache-Control "no-cache, no-store, must-revalidate";
-     }
-     ```
-
-5. **Development Workflow**
-   - Before testing changes: 
-     1. Stop all containers: `docker-compose down`
-     2. Remove volumes: `docker volume prune -f`
-     3. Rebuild with no cache: `docker-compose build --no-cache`
-     4. Start fresh: `docker-compose up`
-
-### Quick Command for Fresh Rebuild
-Always use this command when frontend changes aren't showing:
-```bash
-docker-compose down -v && docker-compose build --no-cache && docker-compose up
-```
 
 ---
 
