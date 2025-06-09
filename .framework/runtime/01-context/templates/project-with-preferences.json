@@ -1,0 +1,35 @@
+{
+  "name": "Project Name",
+  "description": "Brief description of the project",
+  "primaryLanguage": "TypeScript",
+  "status": "In Development",
+  "framework": "Next.js",
+  "database": "PostgreSQL",
+  "infrastructure": "Docker Compose",
+  "setupCommands": "npm install",
+  "buildCommands": "npm run build",
+  "testCommands": "npm test",
+  "runCommands": "npm run dev",
+  "projectSpecificGuidelines": "Any specific guidelines for this project",
+  "integrationPoints": "External services or APIs used",
+  "importantNotes": "Key things to remember",
+  "technicalPreferences": {
+    "defaults": {
+      "frontend": "nextjs-minimal-dark",
+      "backend": "nodejs-api-patterns",
+      "database": "postgres-patterns",
+      "infrastructure": "docker-compose-patterns"
+    },
+    "customPatterns": {
+      "authentication": "jwt-with-refresh-tokens",
+      "apiStyle": "restful-clean",
+      "errorHandling": "centralized-middleware",
+      "logging": "winston-structured"
+    },
+    "conventions": {
+      "fileNaming": "kebab-case",
+      "componentStructure": "feature-based",
+      "testingApproach": "integration-first"
+    }
+  }
+}

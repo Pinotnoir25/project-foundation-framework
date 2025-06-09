@@ -30,6 +30,10 @@ Core project configuration that populates CLAUDE.md placeholders:
 - Key commands (setup, build, test, run)
 - Integration points
 - Current status
+- Technical preferences (optional):
+  - Default patterns for frontend/backend/database/infrastructure
+  - Custom patterns for common features
+  - Project conventions and standards
 
 ### current-state.md
 Living document tracking:
@@ -129,6 +133,48 @@ If conversations folder grows too large:
 1. Archive conversations older than 3 months
 2. Create quarterly summary documents
 3. Keep only recent 10-15 conversations
+
+## Technical Preferences
+
+### Setting Default Patterns
+Configure your preferred technical patterns in `project.json`:
+
+```json
+{
+  "technicalPreferences": {
+    "defaults": {
+      "frontend": "nextjs-minimal-dark",
+      "backend": "nodejs-api-patterns",
+      "database": "postgres-patterns",
+      "infrastructure": "docker-compose-patterns"
+    }
+  }
+}
+```
+
+This allows Claude to automatically suggest your preferred patterns during technical discovery.
+
+### Custom Pattern Preferences
+Define project-specific patterns:
+
+```json
+{
+  "technicalPreferences": {
+    "customPatterns": {
+      "authentication": "jwt-with-refresh-tokens",
+      "apiStyle": "restful-clean",
+      "errorHandling": "centralized-middleware"
+    }
+  }
+}
+```
+
+### Using Preferences
+When technical preferences are set:
+1. Claude will default to your preferred suggestions
+2. Technical discovery starts with your preferences
+3. Patterns are consistently applied across features
+4. Team members see the same defaults
 
 ## Advanced Usage
 
