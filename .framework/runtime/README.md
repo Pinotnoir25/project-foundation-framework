@@ -23,18 +23,23 @@ Task breakdown and sprint planning:
 
 #### `/context/`
 Project context management:
+- **Prompts**: How to update state, document decisions, extract glossary terms
 - **Templates**: project.json, current-state.md, decisions.md, glossary.md
 
-#### `/initialization/`
-Project setup and configuration:
-- **Prompts**: How to generate project-specific scripts
-- **Templates**: Setup scripts, health checks, directory structures
+#### `/project-structure/`
+Project directory and file structure setup:
+- **Templates**: docs-structure.json defining project layout
+
+#### `/docker/`
+Containerization and orchestration:
+- **Prompts**: Containerization strategy analysis
+- **Templates**: Dockerfiles (Node.js, Python), docker-compose.yml, .dockerignore
 
 #### `/technical/`
-Technical standards and patterns Claude should follow:
+Technical specifications and standards:
 - **Prompts**: How to design APIs, create test plans, define infrastructure
-- **Templates**: Technical specification documents
-- **Standards**: API patterns, security requirements, Docker practices, etc.
+- **Templates**: Technical specification documents (TAD, API design, test specs)
+- **Standards**: Subdirectory containing API patterns, security requirements, infrastructure guidelines, etc.
 
 ## How Claude Uses These Files
 
