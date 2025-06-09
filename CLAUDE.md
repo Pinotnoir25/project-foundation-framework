@@ -6,6 +6,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 These rules apply regardless of project state:
 
+### Docker-Only Development Environment
+**CRITICAL**: This project runs EXCLUSIVELY in Docker containers. No code, tests, or services run on the host machine.
+
+- **Primary Method**: Use Docker MCP for ALL container operations
+- **Fallback Only**: If Docker MCP unavailable, use `docker compose` commands (note: modern syntax, not `docker-compose`)
+- **NEVER**: Run npm, python, or any other commands directly on host machine
+- **NEVER**: Install dependencies locally - everything happens inside containers
+
 ### MCP Tools to Use
 When these MCP tools are available, ALWAYS use them instead of alternatives:
 - **Docker MCP**: Use for ALL Docker operations (don't use Bash for docker commands)
@@ -40,10 +48,12 @@ When executing bash commands:
 - Keep commands clean and comment-free to avoid permission issues
 
 ### Docker & Frontend Caching Prevention
-When working with frontend applications in Docker, ALWAYS:
-- Use `--no-cache` flag: `docker build --no-cache -t appname .`
-- Force recreate: `docker-compose down -v && docker-compose build --no-cache && docker-compose up`
-- Clear build folders: `rm -rf dist/ build/ .next/ .nuxt/`
+When working with frontend applications in Docker:
+- **With Docker MCP**: Use the build command with no-cache option
+- **Fallback commands** (if MCP unavailable):
+  - Use `--no-cache` flag: `docker build --no-cache -t appname .`
+  - Force recreate: `docker compose down -v && docker compose build --no-cache && docker compose up`
+  - Clear build folders: `rm -rf dist/ build/ .next/ .nuxt/`
 
 ## Project Context (Build Progressively)
 
@@ -188,18 +198,48 @@ Quick commands:
 
 ## Development Commands
 
+**All operations use Docker MCP. Fallback commands shown only for when MCP is unavailable.**
+
+### Common Docker Operations
+
 ```bash
-# [SETUP_COMMANDS]
-# [BUILD_COMMANDS]
-# [TEST_COMMANDS]
-# [RUN_COMMANDS]
+# Build application (fallback if Docker MCP unavailable)
+docker compose build --no-cache
+
+# Start services
+docker compose up -d
+
+# Run tests inside container
+docker compose run --rm app npm test
+
+# Install new dependency
+docker compose run --rm app npm install express
+
+# Access container shell for debugging
+docker compose exec app sh
+
+# View logs
+docker compose logs -f app
+
+# Stop and clean up
+docker compose down -v
 ```
+
+**Remember**: These are FALLBACK commands. Always prefer Docker MCP when available.
 
 ## Key Integration Points
 
 [INTEGRATION_POINTS]
 
 ## Important Notes
+
+### Docker-First Architecture
+This project enforces a Docker-only development approach:
+- All development, testing, and deployment happens through Docker containers
+- Dependencies are never installed on the host machine
+- Use Docker MCP for all operations when available
+- Fallback to `docker compose` commands only when MCP is unavailable
+- Note: Modern Docker Desktop uses `docker compose` (space), not `docker-compose` (hyphen)
 
 [IMPORTANT_NOTES]
 
