@@ -93,6 +93,18 @@ Quick commands:
 
 [IMPORTANT_NOTES]
 
+## Framework Development Mode
+
+### IMPORTANT: Framework File Protection
+Check the working directory name to determine the mode:
+- If directory is named `project-foundation-framework`: **Framework Development Mode** - OK to modify .framework/ files
+- Any other directory name: **Project Mode** - NEVER modify files in .framework/ directory
+
+In Project Mode, if changes are needed to framework files, inform the user to:
+1. Make changes in the upstream framework repository
+2. Pull updates into their project
+3. Or override locally with project-specific versions outside .framework/
+
 ## Development Tool Preferences
 
 ### MCP Tools to Use
