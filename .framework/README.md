@@ -1,70 +1,59 @@
-# Framework Directory
+# Project Foundation Framework
 
-This directory contains all framework-level documentation, templates, and prompts that define the development methodology and standards for this project.
+The `.framework/` directory contains all the resources that power the Project Foundation Framework. It is organized into two main sections based on the intended audience and usage.
 
 ## Directory Structure
 
-### guides/
-Framework documentation and guides:
-- **FRAMEWORK_GUIDE.md** - Main framework overview and principles
-- **INITIALIZE.md** - Project initialization guide
-- **FRAMEWORK_CUSTOMIZATION.md** - How to customize the framework for your needs
-- **system-guides/** - Core system documentation:
-  - `prd-guide.md` - Product Requirements Documentation system
-  - `tasks-guide.md` - Task management system
-  - `technical-guide.md` - Technical documentation system
-  - Quick reference guides for each system
+```
+.framework/
+├── documentation/     # For humans - learning and reference
+│   ├── guides/       # Conceptual explanations and best practices
+│   └── examples/     # Complete reference implementations
+└── runtime/          # For Claude - execution and generation
+    ├── prd/         # Product requirements documentation
+    ├── tasks/       # Task breakdown and planning
+    ├── context/     # Project context management
+    ├── initialization/ # Project setup
+    └── technical/   # Technical standards and patterns
+```
 
-### templates/
-All reusable templates organized by type:
-- **prd/** - Product Requirements Document templates
-- **tasks/** - Task breakdown and tracking templates
-- **technical/** - Technical documentation templates (TAD, API, infrastructure)
-- **scripts/** - Script templates for common operations
-- **initialization/** - Project initialization templates
+## Key Concepts
 
-### prompts/
-AI prompts for generating content:
-- **prd/** - Prompts for creating PRDs from user stories
-- **tasks/** - Prompts for breaking down PRDs into tasks
-- **technical/** - Prompts for generating technical specs
-- **initialization/** - Prompts for project setup
+### Documentation vs Runtime
+- **Documentation** (`/documentation/`): Materials for humans to read and learn from
+- **Runtime** (`/runtime/`): Materials Claude uses during execution to generate content and follow standards
 
-### initialization/
-Project initialization resources:
-- Architecture planning guides
-- Domain mapping templates
-- Context management strategies
-- Project setup checklists
+### Theme-Based Organization
+Runtime materials are organized by functional theme (PRD, tasks, etc.) rather than by type (templates, prompts). This keeps related materials together.
+
+### Prompts vs Templates
+- **Prompts**: Instructions for Claude's thinking process (HOW to analyze)
+- **Templates**: Document structures for output (WHAT to create)
 
 ## Usage
 
-1. **Starting a new project**: Begin with `guides/INITIALIZE.md`
-2. **Creating documentation**: Use templates from `templates/`
-3. **AI-assisted generation**: Use prompts from `prompts/`
-4. **Customization**: Follow `guides/FRAMEWORK_CUSTOMIZATION.md`
+### For Developers
+1. Read `/documentation/guides/` to understand concepts
+2. Review `/documentation/examples/` for reference implementations
+3. Let Claude handle the runtime materials automatically
 
-## Key Principles
+### For Claude
+1. Check CLAUDE.md for project-specific configuration
+2. Use `/runtime/` materials when executing tasks
+3. Reference `/documentation/` for understanding framework philosophy
 
-1. **Separation of Concerns**: Framework files are separate from project files
-2. **Reusability**: Templates and prompts can be used across features
-3. **Consistency**: All projects follow the same documentation structure
-4. **AI-First**: Prompts enable efficient content generation
-5. **Flexibility**: Framework can be customized per project needs
+## Important Notes
 
-## Quick Commands
+- **DO NOT MODIFY** framework files in your project (unless in framework development mode)
+- The framework is designed to be used "as-is" by Claude during runtime
+- Templates are not meant to be copied - Claude reads them when needed
 
-Generate PRD:
-```
-@claude use prompt at .framework/prompts/prd/new-feature-prd.md
-```
+## Getting Started
 
-Create tasks from PRD:
-```
-@claude use prompt at .framework/prompts/tasks/prd-to-tasks.md
-```
+When starting a new project:
+1. Claude will guide you through initialization
+2. The framework will create necessary directories and context files
+3. You'll provide project-specific information
+4. Claude will use the framework to help build your project
 
-Generate technical spec:
-```
-@claude use prompt at .framework/prompts/technical/prd-to-technical-spec.md
-```
+For more information, see the main README.md at the repository root.
