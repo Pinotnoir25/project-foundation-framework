@@ -93,6 +93,20 @@ Quick commands:
 
 See `.framework/documentation/guides/system-guides/tasks-guide.md` for the complete task management guide.
 
+## Requirement Traceability
+
+When implementing features from PRDs, add a simple comment linking the code to its requirements:
+
+```javascript
+// Implements user authentication from docs/prd/features/core/authentication.md
+function login(req, res) { ... }
+```
+
+**When to add references:** APIs, core business logic, data models
+**When to skip:** Utilities, config files, obvious boilerplate
+
+That's it. Keep it simple.
+
 ## Context Management
 
 Project context is maintained in the `.project/` directory:
