@@ -117,12 +117,12 @@ temp/
 *.p12
 *.pfx
 
-# Project Context (User-specific)
-.project/conversations/
-.project/context/current-state.md
-.project/context/decisions.md
-.project/context/glossary.md
-.project/context/project.json
+# Project Context
+# Only ignore conversations as they can be large and ephemeral
+.project/conversations/*
+!.project/conversations/.gitkeep
+
+# All other project files (context, docs, app) should be committed!
 
 # Backup Files
 *.bak
