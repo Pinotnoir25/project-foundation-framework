@@ -102,6 +102,17 @@ Quick commands:
 - Load context: `@claude load project context`
 - Update state: `@claude update project state`
 
+## Project Structure
+
+- `/app/` - All application code goes here
+  - For single component: Place code directly in `/app/`
+  - For multiple components: Create subdirectories like `/app/frontend/`, `/app/backend/`, `/app/api/`
+  - Each component should have its own Dockerfile
+- `/docs/` - Project documentation (PRDs, tasks, API docs)
+- `/.project/` - Project context and state files
+- `docker-compose.yml` - Container orchestration (at root level)
+- `.env` files - Environment configuration (at root level)
+
 ## Development Workflow
 
 1. **Initialize**: Use guides in `.framework/documentation/guides/` for project setup
