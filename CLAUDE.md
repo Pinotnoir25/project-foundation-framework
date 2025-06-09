@@ -18,6 +18,21 @@ Check the working directory name to determine the mode:
 - If directory is named `project-foundation-framework`: **Framework Development Mode** - OK to modify .framework/ files
 - Any other directory name: **Project Mode** - NEVER modify files in .framework/ directory
 
+### Framework Runtime Materials
+The `.framework/runtime/` directory contains generation guides:
+
+- **PRD Creation**: `/01-prd/` - Templates and prompts for requirements
+- **Task Management**: `/02-tasks/` - Breaking down PRDs into work
+- **Technical Design**: `/03-technical/` - Discovery framework for technical choices
+
+These materials guide your thinking process:
+1. Start with PRD templates to capture business needs
+2. Use technical discovery to identify design decisions
+3. Document designs with patterns in `/docs/technical/design/`
+4. Generate tasks that reference both PRDs and technical designs
+
+The framework ensures consistency through progressive refinement, not rigid templates.
+
 ### Bash Command Rules
 When executing bash commands:
 - NEVER add comments within the command string (e.g., DON'T: "# comment\ncommand")
@@ -106,6 +121,25 @@ function login(req, res) { ... }
 **When to skip:** Utilities, config files, obvious boilerplate
 
 That's it. Keep it simple.
+
+## Technical Design Process
+
+When implementing PRD features, identify and document technical designs:
+
+1. **Discovery**: Use the framework in `.framework/runtime/03-technical/prompts/technical-design-discovery.md`
+2. **Clarification**: Ask users about technical choices when gaps are identified
+3. **Documentation**: Record designs and patterns in `/docs/technical/design/`
+4. **Reference**: Use documented patterns for consistent implementation
+
+### Workflow Example
+PRD: "Users can upload profile pictures"
+→ Technical questions emerge: Storage method? Size limits? Format validation?
+→ Ask user for decisions
+→ Document in `/docs/technical/design/file-uploads.md`
+→ Include reusable patterns in the same document
+→ Create tasks referencing these designs
+
+Technical designs are progressive - start simple, refine as you learn more.
 
 ## Context Management
 
