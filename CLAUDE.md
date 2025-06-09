@@ -18,6 +18,12 @@ Check the working directory name to determine the mode:
 - If directory is named `project-foundation-framework`: **Framework Development Mode** - OK to modify .framework/ files
 - Any other directory name: **Project Mode** - NEVER modify files in .framework/ directory
 
+### Bash Command Rules
+When executing bash commands:
+- NEVER add comments within the command string (e.g., DON'T: "# comment\ncommand")
+- Use the description parameter to explain what the command does
+- Keep commands clean and comment-free to avoid permission issues
+
 ### Docker & Frontend Caching Prevention
 When working with frontend applications in Docker, ALWAYS:
 - Use `--no-cache` flag: `docker build --no-cache -t appname .`
