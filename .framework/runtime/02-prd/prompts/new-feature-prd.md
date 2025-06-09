@@ -1,52 +1,47 @@
-# New Feature PRD Generation Prompt
+# New Feature PRD Prompt
 
-Use this prompt template to generate a comprehensive PRD for a new feature:
+When creating a PRD for a new user-facing feature:
 
----
+## Information to Gather
 
-I need you to create a Product Requirements Document (PRD) for a new feature in our {{PROJECT_TYPE}} project. Please use the PRD template located at `docs/prd/templates/prd-template.md`.
+### Essential (for minimal PRD):
+1. **Problem**: What specific problem does this solve for users?
+2. **Users**: Who experiences this problem?
+3. **Solution**: High-level approach (1-2 sentences)
+4. **Success**: How do we measure if it works?
 
-## Context
-- **Project**: {{PROJECT_NAME}}
-- **Purpose**: {{PROJECT_PURPOSE}}
-- **Current Stage**: [e.g., "Early development", "MVP planning", "Production enhancement"]
+### Additional (as complexity emerges):
+1. **User Journey**: How users currently handle this
+2. **Technical Approach**: Architecture considerations
+3. **Dependencies**: Other features or services needed
+4. **Risks**: What could go wrong?
 
-## Feature Information
-- **Feature Name**: [Name of the feature]
-- **Feature Category**: [core/integrations/infrastructure]
-- **Brief Description**: [1-2 sentences about what this feature does]
+## Creation Process
 
-## Problem Details
-- **Problem Statement**: [Describe the specific problem this feature solves]
-- **Affected Users**: [Who experiences this problem]
-- **Current Workaround**: [How users currently handle this, if applicable]
-- **Evidence/Data**: [Any user feedback, metrics, or research supporting this need]
+1. **Start Small**:
+   - Use `prd-minimal.md` for simple features
+   - Use `prd-feature.md` for more complex user features
 
-## Solution Direction
-- **High-Level Approach**: [General idea of how to solve this]
-- **Key Capabilities**: [Main things the feature should do]
-- **Out of Scope**: [What this feature will NOT do]
+2. **Focus on User Value**:
+   - Lead with the problem, not the solution
+   - Describe impact on user experience
+   - Keep technical details minimal initially
 
-## Success Criteria
-- **Primary Success Metric**: [How we'll measure if this works]
-- **Additional Metrics**: [Other important measurements]
-- **Target Timeline**: [When this needs to be delivered]
+3. **Container Considerations**:
+   - Which service/container implements this?
+   - Any new endpoints needed?
+   - Environment variables or configuration?
 
-## Technical Context
-- **Related Systems**: [{{DATABASE_TYPE}} collections/tables, APIs, or services involved]
-- **Technical Constraints**: [Any limitations or requirements]
-- **Dependencies**: [What this feature depends on]
+4. **Progressive Enhancement**:
+   - Start with core sections
+   - Add detail as feature develops
+   - Update PRD as learning occurs
 
-## Additional Information
-[Any other context, links to discussions, or relevant details]
+## Anti-Patterns to Avoid
+- Don't create 10-page PRDs upfront
+- Don't include implementation details
+- Don't leave sections empty "for later"
+- Don't delay starting due to "incomplete" info
 
----
-
-Please create a comprehensive PRD following the template structure, ensuring to:
-1. Separate problem exploration from solution details
-2. Include specific, measurable success metrics
-3. Define clear acceptance criteria for each requirement
-4. Consider security implications given the {{INDUSTRY_CONTEXT}}
-5. Account for any {{TECHNICAL_REQUIREMENTS}} specific to this project
-
-Save the PRD to: `docs/prd/features/[category]/[feature-name]-prd.md`
+## Output
+Save to: `docs/prd/features/core/[feature-name].md`

@@ -1,48 +1,55 @@
-# Integration PRD Generation Prompt
+# Integration PRD Prompt
 
-Use this prompt for creating PRDs focused on integrations with external systems:
+When creating a PRD for external service integration:
 
----
+## Information to Gather
 
-I need you to create a Product Requirements Document (PRD) for an integration feature in our MCP server. Please use the PRD template at `docs/prd/templates/prd-template.md`.
+### Essential (for minimal PRD):
+1. **Purpose**: Why do we need this integration?
+2. **Service**: What are we integrating with?
+3. **Value**: What does this enable for users?
+4. **Success**: How do we measure integration success?
 
-## Integration Overview
-- **Integration Name**: [Name of the integration]
-- **External System**: [System we're integrating with]
-- **Integration Type**: [API/Database/File/Stream/etc.]
-- **Data Flow Direction**: [Inbound/Outbound/Bidirectional]
+### Additional (as needed):
+1. **Data Flow**: What data moves between systems?
+2. **Authentication**: How do we connect securely?
+3. **Rate Limits**: Any API constraints?
+4. **Failure Handling**: What if service is down?
 
-## Business Context
-- **Why This Integration**: [Business reason for this integration]
-- **Expected Volume**: [Data volume, frequency of use]
-- **Critical User Workflows**: [Key use cases that depend on this]
+## Creation Process
 
-## Technical Integration Details
-- **Authentication Method**: [How we'll authenticate]
-- **Data Format**: [JSON/XML/CSV/etc.]
-- **Protocol**: [REST/GraphQL/gRPC/etc.]
-- **Rate Limits**: [Any known limitations]
+1. **Start with Business Need**:
+   - Why this integration now?
+   - What user problem does it solve?
+   - What happens without it?
 
-## Data Mapping
-- **Source Data**: [What data from their system]
-- **Target Collections**: [Which MongoDB collections affected]
-- **Transformation Requirements**: [How data needs to be transformed]
+2. **Container Architecture**:
+   - Which container handles this integration?
+   - New service needed or existing?
+   - Environment variables for credentials?
 
-## Security & Compliance
-- **Data Sensitivity**: [PHI/PII considerations]
-- **Compliance Requirements**: [HIPAA, GDPR, etc.]
-- **Access Controls**: [Who can use this integration]
+3. **Security First**:
+   - How are credentials stored?
+   - Data privacy considerations?
+   - Network isolation needs?
 
-## Error Handling & Monitoring
-- **Failure Scenarios**: [What could go wrong]
-- **Retry Strategy**: [How to handle failures]
-- **Monitoring Needs**: [What to track]
+4. **Progressive Detail**:
+   - Start with `prd-minimal.md` for simple integrations
+   - Use `prd-integration.md` for complex third-party services
+   - Add technical details as you explore APIs
 
-Please create a comprehensive integration PRD that:
-1. Clearly defines the integration boundaries
-2. Addresses data security given the clinical trial context
-3. Includes detailed error handling requirements
-4. Specifies monitoring and alerting needs
-5. Considers the SSH tunnel constraint for MongoDB access
+## Key Considerations
+- External service documentation quality
+- Webhook vs polling patterns
+- Retry and circuit breaker needs
+- Data transformation requirements
+- Cost implications
 
-Save to: `docs/prd/features/integrations/[integration-name]-prd.md`
+## Anti-Patterns
+- Don't document entire third-party API
+- Don't design complex orchestration upfront
+- Don't ignore failure scenarios
+- Don't hardcode credentials
+
+## Output
+Save to: `docs/prd/features/integrations/[service-name]-integration.md`
